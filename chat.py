@@ -24,7 +24,7 @@ def converter(obj: Any) -> Any:
         # Return string representation for anything else
         return str(obj)
     
-class MCP_ChatBot:
+class MCPChatBot:
 
     def __init__(self):
         # Initialize session and client objects
@@ -140,7 +140,7 @@ class MCP_ChatBot:
 
 
 async def main():
-    chatbot = MCP_ChatBot()
+    chatbot = MCPChatBot()
     await chatbot.connect_to_server_and_run()
   
 
