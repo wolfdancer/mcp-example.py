@@ -99,7 +99,7 @@ def extract_info(paper_id: str) -> str:
     return f"There's no saved information related to paper {paper_id}."
 
 def signal_handler(sig, frame):
-    print(f"Shutting down from signal {sig} received in {frame}")
+    print(f"Shutting down from signal {sig} received in {frame}", file=sys.stderr)
     sys.exit(0)
 
 if __name__ == "__main__":
