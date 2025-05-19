@@ -11,7 +11,7 @@ COPY arxiv_server.py .
 COPY pyproject.toml .
 
 # Install required packages
-RUN pip install --upgrade pip && pip install 'pip>=23.1' && pip install .
+RUN pip install --upgrade pip && pip install .
 
 # Command to run the arxiv_server.py script
 CMD ["python", "arxiv_server.py"]
