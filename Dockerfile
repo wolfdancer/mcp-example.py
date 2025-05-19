@@ -10,7 +10,7 @@ WORKDIR /app
 COPY pyproject.toml .
 
 # Install required packages
-RUN pip install --upgrade pip && pip install .
+RUN pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir .
 
 # Copy application code
 COPY arxiv_server.py .
