@@ -100,6 +100,7 @@ def extract_info(paper_id: str) -> str:
 
 def signal_handler(sig, frame):
     print(f"On signal {sig}, shutting down gracefully...", flush=True)
+    mcp.shutdown()  # Ensure the FastMCP server is properly shut down
     sys.exit(0)
 
 if __name__ == "__main__":
