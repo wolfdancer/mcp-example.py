@@ -1,6 +1,8 @@
 import arxiv # type: ignore
 import json
 import os
+import signal
+import sys
 from typing import List
 from mcp.server.fastmcp import FastMCP
 
@@ -96,7 +98,14 @@ def extract_info(paper_id: str) -> str:
     
     return f"There's no saved information related to paper {paper_id}."
 
+def signal_handler(sig, frame):
+    print(f"On signal {sig}, shutting down gracefully...", flush=True)
+    sys.exit(0)
 
+# Register signal handlers
+signal.signal(signal.SIGTERM, signal_handler)  # Standard kill command
+signal.signal(signal.SIGINT, signal_handler)   # Ctrl+C
+signal.signal(signal.SIGHUP, signal_handler)   # Terminal closes
 
 if __name__ == "__main__":
     # Initialize and run the server
